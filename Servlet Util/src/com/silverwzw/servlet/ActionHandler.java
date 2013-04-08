@@ -1,10 +1,11 @@
 package com.silverwzw.servlet;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public interface ActionHandler {
-	public void serv(HttpServletRequest req, HttpServletResponse resp) throws IOException;
+/**
+ * ActionHandler is an interface that extends Servable<br />
+ * , which is a specific version of Servable interface used in ActionRouterServlet 
+ * @author Silverwzw
+ * @see com.silverwzw.servlet.Servable
+ * @see com.silverwzw.servlet.ActionRouterServlet
+ */
+public interface ActionHandler extends Servable{
 }
