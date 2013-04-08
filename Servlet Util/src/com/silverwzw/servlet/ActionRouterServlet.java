@@ -26,7 +26,7 @@ public abstract class ActionRouterServlet extends SimpleServlet {
 	private ActionHandler _ARS_defaultHandler = null;
 	private static Pattern _ARS_pattern;
 	static {
-		_ARS_pattern = Pattern.compile("^(?:.*?&)??action=([^&]+))");
+		_ARS_pattern = Pattern.compile("^(?:.*?&)??action=([^&]+)");
 	}
 	/**
 	 * serv method is a final method response for routing request to handlers based on the Action parameter specified in query string.<br /><br />
@@ -50,9 +50,11 @@ public abstract class ActionRouterServlet extends SimpleServlet {
 		}
 		Matcher m;
 		String action = null;
-		m = _ARS_pattern.matcher(req.getQueryString());
-		if (m.find()) {
-			action = m.group(1);
+		if (req.getQueryString() != null) {
+			m = _ARS_pattern.matcher(req.getQueryString());
+			if (m.find()) {
+				action = m.group(1);
+			}
 		}
 		if (action != null && _ARS_actionHandlers.containsKey(action)) {
 			_ARS_actionHandlers.get(action).serv(req,resp);
