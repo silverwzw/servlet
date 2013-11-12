@@ -23,11 +23,14 @@ public abstract class SimpleServlet extends HttpServlet implements Servable{
 	 * the object represents the response to this HTTP request.
 	 * @throws java.io.IOException
 	 */
+	protected String method;
 	public abstract void serv(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 	public final void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		method = "GET";
 		serv(req,resp);
 	}
 	public final void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		method = "POST";
 		serv(req,resp);
 	}
 }
