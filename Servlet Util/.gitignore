@@ -1,0 +1,8 @@
+/bin
+*.class
+.classpath
+.project
+.settings
+src/META-INF
+src/log4j.properties
+war
